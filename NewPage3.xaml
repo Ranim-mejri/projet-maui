@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:MauiApp1112.ViewModel"
+             x:Class="MauiApp1112.view.NewPage3"
+             Title="Calcul Ration Page">
+
+    <ContentPage.BindingContext>
+        <viewModel:ViewModelPage3 />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <StackLayout Orientation="Horizontal" Spacing="10" Margin="0,0,0,10">
+                <Label Text="Aliment" FontAttributes="Bold" WidthRequest="120" />
+                <Label Text="%MS" FontAttributes="Bold" WidthRequest="50" />
+                <Label Text="Kg MB" FontAttributes="Bold" WidthRequest="50" />
+                <Label Text="Kg MS" FontAttributes="Bold" WidthRequest="50" />
+            </StackLayout>
+
+            <CollectionView ItemsSource="{Binding PredefinedForages}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+
+                            <Label Text="{Binding Name}" WidthRequest="120" />
+
+                            <Entry Text="{Binding PercentMS, Mode=TwoWay}" 
+                                   Keyboard="Numeric" 
+                                   WidthRequest="50" />
+
+                            <Entry Text="{Binding KgMB, Mode=TwoWay}" 
+                                   Keyboard="Numeric" 
+                                   WidthRequest="50" />
+
+                            <Label Text="{Binding KgMS}" WidthRequest="50" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label Text="{Binding AlertMessage}" 
+                   TextColor="Red" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" 
+                   Margin="0,20,0,0" />
+
+            <Button Text="Recalculer"
+                    Command="{Binding EvaluateRationCommand}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
