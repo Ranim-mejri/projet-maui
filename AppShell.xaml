@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MauiApp1112.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MauiApp1112"
+    xmlns:views="clr-namespace:MauiApp1112.view"
+    Shell.FlyoutBehavior="Disabled"
+    Title="MauiApp1112">
+
+    <ShellContent Route="NewPage1" ContentTemplate="{DataTemplate views:NewPage1}" />
+    <ShellContent Route="NewPage2" ContentTemplate="{DataTemplate views:NewPage2}" />
+    <ShellContent Route="NewPage3" ContentTemplate="{DataTemplate views:NewPage3}" />
+
+
+</Shell>
